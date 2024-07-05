@@ -8,21 +8,21 @@ import pickle
 df =pd.read_csv('electricity_usage.csv')
 
 ##st.dataframe(df) - untuk bukti ada data
-from PIL import Image
-Image.open('tnb_logo.png').convert('RGB').save('tnb_logo.jpeg')
-im=Image.open("tnb_logo.jpeg")
+#from PIL import Image
+#Image.open('tnb_logo.png').convert('RGB').save('tnb_logo.jpeg')
+#im=Image.open("tnb_logo.jpeg")
 
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image(im,width=300,caption="TNB Logo")
+    #st.image(im,width=300,caption="TNB Logo")
     st.info("Monthly hours by City")
     df_city=df.groupby('City')['MonthlyHours'].sum().reset_index()
     st.bar_chart(df_city,x="City", y="MonthlyHours")
 
 with col2:
-    st.image(im,width=300,caption="TNB Logo")
+    #st.image(im,width=300,caption="TNB Logo")
     st.info("Electricity bill by City")
     df_city2=df.groupby('City')['ElectricityBill'].sum().reset_index()
     st.bar_chart(df_city2,x="City",y="ElectricityBill")
